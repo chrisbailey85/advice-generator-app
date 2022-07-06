@@ -1,13 +1,125 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+@media (prefers-reduced-motion: reduce) {
+  body > * {
+    animation: none !important;
+  }
+}
+/* shows only on screen reader's */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: hsl(218, 23%, 16%);
+  padding: 0 1rem;
+  font-family: 'Manrope', sans-serif;
+}
+picture img {
+  max-width: 100%;
+}
+.main {
+  margin-top: 5rem;
+}
+.card {
+  position: relative;
+  background-color: hsl(217, 19%, 24%);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.heading {
+  color: hsl(150, 100%, 66%);
+  font-size: 0.6rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.advice {
+  color:  hsl(193, 38%, 86%);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.divider {
+  margin-bottom: 1.5rem;
+}
+.btn {
+  background-color: hsl(150, 100%, 66%);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  padding: 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: -1.5rem;
+  transform: translateX(-50%);
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1;
+  z-index: -1;
+  border-radius: 50%;
+  background-color: hsl(150, 100%, 66%);
+  transition: filter 0.5s ease-in-out;
+}
+.btn img.anime {
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(780deg);
+  }
+}
+@media (min-width: 425px) {
+  body {
+    padding: 0 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    min-height: 100vh;
+  }
+  .card {
+    max-width: 500px;
+  }
+}
+
+@media (hover:hover) {
+  
+  .btn:hover::before {
+    filter: blur(10px);
+  }
+  .btn:hover {
+    filter: brightness(1.2);
+  }
 }
